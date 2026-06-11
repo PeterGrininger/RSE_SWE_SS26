@@ -1,54 +1,39 @@
 #include "base.hpp"
 #include "derived.hpp"
-#include <iostream>
 
-
-int main (){
-    // Derived derived;
-    // derived.whoami();
-
-    // Derived copy = derived;
-    // copy.whoami();
-    // derived.whoami();
-
-    // // Base base;
-    // // base.whoami();
-    // // base.whoami();
-
+int main() {
     Derived derived;
-
-
     Derived *p_derived = &derived;
-    p_derived ->whoami();
-    p_derived ->hello();
 
-    Base *p_base = new Base();
-    p_base->whoami(); //Statischer Datentyp ein Pointer auf eine Klasse 
+    p_derived->whoami();
+    p_derived->hello();
 
-    //delete p_derived;
-    //delete p_base;
+    Base *p_base = new Base(); 
+
+    p_base->whoami();
+
     Derived *maybe = dynamic_cast<Derived*>(p_base);
-
-
-    if (maybe == nullptr) { //mit Nullpointer vergleichen um zu sehen ob es convertiert werden kann (wegen Base *p_base = new Base();)
-        std::cout << "cant convert\n";
-    
-    }else {
+    if(maybe == nullptr) {
+        std::cout << "can't convert\n";
+    } else {
         maybe->hello();
     }
-
+    
     return 0;
 }
 
-// Kann man sich so vorstellen 
-// class Person; Name, Age,... , getIdentification
-// class Student : public Person; getIdentification -> Matrikelnummer
-// verify(const Person& p)
+/*class Person; Name, Age, ..., getIdentification
+class Student : public Person; getIdentification -> Matrickelnummer
 
+verify(const Person& p)*/
 
+/*
+Webshop -> Produkte
+Produkte:
+    - FixedPricedProducts -> price per piece
+    - WeightBasedProduct -> price per kg
+    - LengthBasedProduct -> price per meter
 
-// Kann man sich so vorstellen 
-// class Vehicle; // -> base
-// class Car : public Vehicle; //-> derived
-// class Bike : public Vehicle;
-// class Bus : public Vehicle;
+user can select multiple objects from a catalog and put them into his basked
+at checkout shipping costs will be calculated based on weight: 5€ + 0.20€ per kg
+*/

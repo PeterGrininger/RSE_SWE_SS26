@@ -6,6 +6,3 @@ add_executable(test_webshop test/webshop.cpp)
 target_include_directories(test_webshop PRIVATE include)
 target_link_libraries(test_webshop GTest::gtest_main)
 gtest_discover_tests(test_webshop)
-
-set(PYBIND11_FINDPYTHON ON)
-find_package(pybind11 CONFIG REQUIRED)

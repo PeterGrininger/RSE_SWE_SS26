@@ -1,4 +1,9 @@
-//Class fixedPricedProduct
-//public Product
-//price() override
-//
+#pragma once
+
+class FixedPriceProduct {
+public:
+    FixedPriceProduct(???);
+    double getPrice() override;
+private:
+    ???
+};
