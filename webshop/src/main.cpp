@@ -1,25 +1,33 @@
 #include "base.hpp"
 #include "derived.hpp"
+#include "fixedPricedProduct.hpp"
+#include "product.hpp"
 
-int main() {
-    Derived derived;
-    Derived *p_derived = &derived;
+// int main() {
+//     Derived derived;
+//     Derived *p_derived = &derived;
 
-    p_derived->whoami();
-    p_derived->hello();
+//     p_derived->whoami();
+//     p_derived->hello();
 
-    Base *p_base = new Base(); 
+//     Base *p_base = new Base(); 
 
-    p_base->whoami();
+//     p_base->whoami();
 
-    Derived *maybe = dynamic_cast<Derived*>(p_base);
-    if(maybe == nullptr) {
-        std::cout << "can't convert\n";
-    } else {
-        maybe->hello();
-    }
+//     Derived *maybe = dynamic_cast<Derived*>(p_base);
+//     if(maybe == nullptr) {
+//         std::cout << "can't convert\n";
+//     } else {
+//         maybe->hello();
+//     }
     
+//     return 0;
+// }
+
+int main (){
+    FixedPriceProduct test("Sample Product", 9.99, 0.5);
     return 0;
+
 }
 
 /*class Person; Name, Age, ..., getIdentification

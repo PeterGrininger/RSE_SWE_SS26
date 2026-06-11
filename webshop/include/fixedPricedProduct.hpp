@@ -1,9 +1,9 @@
 #pragma once
+#include "product.hpp"
 
-class FixedPriceProduct {
+class FixedPriceProduct:public Product {
 public:
-    FixedPriceProduct(???);
+    FixedPriceProduct(const std::string& name, double unitprice, double weight);
     double getPrice() override;
-private:
-    ???
+
 };
