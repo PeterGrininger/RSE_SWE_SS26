@@ -24,10 +24,13 @@
 //     return 0;
 // }
 
-int main (){
-    FixedPriceProduct test("Sample Product", 9.99, 0.5);
-    return 0;
 
+int main() {
+    FixedPriceProduct test;
+    
+    Product* prod = &test;
+
+    return 0;
 }
 
 /*class Person; Name, Age, ..., getIdentification
