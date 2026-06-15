@@ -1,10 +1,16 @@
 #include "shop.hpp"
 #include "product.hpp"
 #include <iostream>
+#include <memory>
+#include <utility>
 
 
-void Shop::addProduct(uint32_t id, Product* product){
-    catalogue[id] = product;
+void Shop::addProduct(uint32_t id, std::unique_ptr<Product> product){
+    if (product == nullptr) {
+        return;
+    }
+    catalogue[id] =std::move(product); //unique verschieben
+
 }
 
 void Shop::removeProduct(uint32_t id){

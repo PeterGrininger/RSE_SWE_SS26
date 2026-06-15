@@ -19,7 +19,7 @@ const double Basket::checkout() const{
     double weight_sum = 0;
     for (auto& [product, quantity] : items) {
         if (product) {
-            price_sum += product->getUnitPrice() * quantity;
+            price_sum += product->getPrice() * quantity;
             weight_sum += product->getWeight() * quantity;
         }
     }
