@@ -1,29 +1,31 @@
 #include "shop.hpp"
 #include "product.hpp"
+#include "item.hpp"
+
 #include <iostream>
 #include <memory>
-#include <utility>
 
-
-void Shop::addProduct(uint32_t id, std::unique_ptr<Product> product){
+void Shop::addProduct(uint32_t id, std::unique_ptr<Product> product)
+{
     if (product == nullptr) {
         return;
     }
-    catalogue[id] =std::move(product); //unique verschieben
-
+    catalogue[id] = std::move(product);
 }
 
-void Shop::removeProduct(uint32_t id){
-    delete catalogue[id];
+void Shop::removeProduct(uint32_t id)
+{
     catalogue.erase(id);
 }
 
-Product* Shop::getProduct(uint32_t id){
-    return catalogue[id];
+std::unique_ptr<Item> Shop::getItem(uint32_t id, double quantity)
+{
+    return std::make_unique(catalogue[id]);
 }
 
-void Shop::listProducts(){
+void Shop::listProducts()
+{
     for (auto& [id, product] : catalogue) {
-        std::cout << id << ":" << product->getName() << "\n";
+        std::cout << id << ": " << product->getName() << "\n";
     }
 }

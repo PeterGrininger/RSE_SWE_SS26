@@ -1,15 +1,16 @@
 #pragma once
 
 #include "product.hpp"
-#include <vector>
+
 #include <map>
+#include <memory>
 
 class Basket {
 public:
-    void addItem(Product* product, double quantity); //Übergeben eines Pruduktes und Menge (Aber das Produkt nicht die ID wegen den Abhängigkeiten zum Shop)
-    void removeItem(Product* product);
+    void addItem(std::shared_ptr<Product> product, double quantity);
+    void removeItem(std::shared_ptr<Product> product);
     [[nodiscard]] const double checkout() const;
     void printItems() const;
 private:
-    std::map<Product*, double> items; //MIt map: Schlüssel,Wert -> Pointer bei Gleichem Produkt ist dann gleich und es wird automatisch zusammengefasst
+    std::map<std::shared_ptr<Product>, double> items;
 };
