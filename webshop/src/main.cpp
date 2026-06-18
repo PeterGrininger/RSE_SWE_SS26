@@ -12,7 +12,7 @@ int main() {
     shop.addProduct(1, std::make_unique<FixedPriceProduct>("laptop", 3100, 5));
     shop.addProduct(2, std::make_unique<FixedPriceProduct>("apple", 1.5, 0.3));
     shop.addProduct(3, std::make_unique<WeightBasedProduct>("meatloaf", 0.99, 0.1));
-    shop.addProduct(4, std::make_unique<WeightBasedProduct>("garden earth", 12.99, 25)); //12,99€ für 25 kg
+    shop.addProduct(4, std::make_unique<WeightBasedProduct>("garden earth", 12.99, 25));
     
     while(std::cin.good()) {
         uint32_t id;

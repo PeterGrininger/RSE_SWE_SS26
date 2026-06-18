@@ -22,10 +22,10 @@ void Shop::removeProduct(uint32_t id)
 std::unique_ptr<Item> Shop::getItem(uint32_t id, double quantity)
 {
     auto iterator = catalogue.find(id);
-    if(iterator != catalogue.end()){
+    if(iterator != catalogue.end()) {
         auto product = iterator->second;
         return product->getItem(quantity);
-    }else {
+    } else {
         return nullptr;
     }
 }
