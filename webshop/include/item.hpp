@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "product.hpp"
+class Product;
 
 class Item {
 public:
