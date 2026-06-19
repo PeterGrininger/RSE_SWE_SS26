@@ -25,7 +25,7 @@ int main() {
         }
         auto item = shop.getItem(id, quantity);
         if(item) {
-            basket.addItem(std::move(item), quantity);
+            basket.addItem(std::move(item), 1);
         }
     }
     std::cout << "\n\nYour order:\n";
